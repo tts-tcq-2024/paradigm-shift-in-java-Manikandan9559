@@ -3,11 +3,10 @@ package vitals;
 public class Main {
     static boolean batteryIsOk(float temperature, float soc, float chargeRate) {
     	if(checkTemperature(temperature)) {
-    		checkSoc(soc, chargeRate);
+    		return checkSoc(soc, chargeRate);
     	} else {
     		return false;
     	}
-        return true;
     }
     
     private static boolean checkTemperature(float temperature) {
@@ -23,8 +22,7 @@ public class Main {
     		System.out.println("State of Charge is out of range!");
     		return false;
     	}
-    	checkChargeRate(chargeRate);
-    	return true;
+    	return checkChargeRate(chargeRate);
     }
     
     private static boolean checkChargeRate(float chargeRate) {
