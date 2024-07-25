@@ -1,6 +1,7 @@
 package vitals;
 
 public class BatteryStatusManager {
+	//Value for the global flags should be set based on requirement from config file
 	private static final boolean IS_TEMPERATURE_WARNING = true;
 	private static final boolean IS_SOC_WARNING = true;
 	private static final boolean IS_CHARGE_RATE_WARNING = true;
