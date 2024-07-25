@@ -14,32 +14,36 @@ public class BatteryStatusPrinter {
 
 	private static void printTemperatureStatus(String status) {
 		if(status.equals("LOW_TEMPERATURE_WARNING")) {
-			System.out.println(Constants.LOW_TEMPERATURE_WARNING);
+			printValue(Constants.LOW_TEMPERATURE_WARNING);
 		} else if(status.equals("HIGH_TEMPERATURE_WARNING")) {
-			System.out.println(Constants.HIGH_TEMPERATURE_WARNING);
+			printValue(Constants.HIGH_TEMPERATURE_WARNING);
 		} else {
-			System.out.println(Constants.TEMPERATURE_BREACH);
+			printValue(Constants.TEMPERATURE_BREACH);
 		}
 	}
 
 	private static void printSocStatus(String status) {
 		if(status.equals("LOW_SOC_WARNING")) {
-			System.out.println(Constants.LOW_SOC_WARNING);
+			printValue(Constants.LOW_SOC_WARNING);
 		} else if(status.equals("HIGH_SOC_WARNING")) {
-			System.out.println(Constants.HIGH_SOC_WARNING);
+			printValue(Constants.HIGH_SOC_WARNING);
 		} else {
-			System.out.println(Constants.SOC_BREACH);
+			printValue(Constants.SOC_BREACH);
 		}
 	}
 
 	private static void printChargeRateStatus(String status) {
 		if(status.equals("LOW_CHARGERATE_WARNING")) {
-			System.out.println(Constants.LOW_CHARGERATE_WARNING);
+			printValue(Constants.LOW_CHARGERATE_WARNING);
 		} else if(status.equals("HIGH_CHARGERATE_WARNING")) {
-			System.out.println(Constants.HIGH_CHARGERATE_WARNING);
+			printValue(Constants.HIGH_CHARGERATE_WARNING);
 		} else {
-			System.out.println(Constants.CHARGERATE_BREACH);
+			printValue(Constants.CHARGERATE_BREACH);
 		}
+	}
+	
+	private static void printValue(String value) {
+		System.out.println(value);
 	}
 
 }
