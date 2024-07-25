@@ -14,7 +14,11 @@ public class BatteryStatusManager {
 	private static boolean checkTemperature(float temperature) {
 		TemperatureStatus temperatureStatus = new TemperatureStatus();
 		String temperatureValue = temperatureStatus.getTemperatureStatus(temperature);
-		if((temperatureValue.endsWith("WARNING") && IS_TEMPERATURE_WARNING) || (temperatureValue.endsWith("BREACH"))) {
+		if(temperatureValue.endsWith("BREACH")) {
+			BatteryStatusPrinter.printStatus(temperatureValue);
+			return false;
+		}
+		if(temperatureValue.endsWith("WARNING") && IS_TEMPERATURE_WARNING) {
 			BatteryStatusPrinter.printStatus(temperatureValue);
 			return false;
 		}
@@ -24,7 +28,11 @@ public class BatteryStatusManager {
 	private static boolean checkSoc(float soc) {
 		SocStatus socStatus = new SocStatus();
 		String socValue = socStatus.getSocStatus(soc);
-		if((socValue.endsWith("WARNING") && IS_SOC_WARNING) || (socValue.endsWith("BREACH"))) {
+		if(socValue.endsWith("BREACH")) {
+			BatteryStatusPrinter.printStatus(socValue);
+			return false;
+		}
+		if(socValue.endsWith("WARNING") && IS_SOC_WARNING){
 			BatteryStatusPrinter.printStatus(socValue);
 			return false;
 		}
@@ -34,7 +42,11 @@ public class BatteryStatusManager {
 	private static boolean checkChargeRate(float chargeRate) {
 		ChargeRateStatus chargeRateStatus = new ChargeRateStatus();
 		String chargeRateValue = chargeRateStatus.getChargeRateStatus(chargeRate);
-		if((chargeRateValue.endsWith("WARNING") && IS_CHARGE_RATE_WARNING) || (chargeRateValue.endsWith("BREACH"))) {
+		if(chargeRateValue.endsWith("BREACH")) {
+			BatteryStatusPrinter.printStatus(chargeRateValue);
+			return false;
+		}
+		if(chargeRateValue.endsWith("WARNING") && IS_CHARGE_RATE_WARNING){
 			BatteryStatusPrinter.printStatus(chargeRateValue);
 			return false;
 		}
